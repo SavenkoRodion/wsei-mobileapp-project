@@ -1,5 +1,5 @@
 const useUserName = (): string => {
-  const { userName } = { userName: "TODO" };
+  const userName = "TODO";
 
   return userName as string;
 };

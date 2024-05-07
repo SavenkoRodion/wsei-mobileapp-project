@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import TPost from "../../model/TPost";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
@@ -14,9 +15,9 @@ const Post = ({ post, userName, commentsCount, children }: PostProps) => {
     <View style={styles.container}>
       <Text style={styles.postedBy}>
         Posted by{" "}
-        <Text style={styles.link} onPress={() => {}}>
+        <Link style={styles.link} href={`/User/${userName}`}>
           {userName}
-        </Text>
+        </Link>
       </Text>
       <Text style={styles.title}>{post.title}</Text>
       <Text style={styles.body}>{post.body}</Text>
@@ -36,7 +37,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "black",
     borderRadius: 5,
-    marginBottom: 30,
     padding: 20,
   },
   postedBy: {

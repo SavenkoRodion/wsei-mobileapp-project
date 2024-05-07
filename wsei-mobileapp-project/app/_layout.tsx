@@ -1,4 +1,4 @@
-import { Slot } from "expo-router";
+import { Link, Slot } from "expo-router";
 import React from "react";
 import { View, Text, StyleSheet, Platform, StatusBar } from "react-native";
 
@@ -8,8 +8,12 @@ const Layout = () => {
       <View style={styles.appBar}>
         <Text style={styles.headerText}>React zaliczeniowy</Text>
         <View style={styles.linkContainer}>
-          <Text style={styles.link}>Posts</Text>
-          <Text style={styles.link}>Users</Text>
+          <Link style={styles.link} href={`/`}>
+            Posts
+          </Link>
+          <Link style={styles.link} href={`/Users`}>
+            Users
+          </Link>
         </View>
       </View>
       <View style={styles.contentContainer}>
