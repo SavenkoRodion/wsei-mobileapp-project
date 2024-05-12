@@ -19,11 +19,9 @@ const Layout = (): React.JSX.Element => {
           </Link>
         </View>
       </View>
-      <ScrollView style={styles.scrollContainer}>
-        <View style={styles.contentContainer}>
-          <Slot />
-        </View>
-      </ScrollView>
+      <View style={styles.contentContainer}>
+        <Slot />
+      </View>
     </View>
   );
 };
@@ -55,10 +53,8 @@ const styles = StyleSheet.create({
     color: "white",
     textDecorationLine: "underline",
   },
-  scrollContainer: {
-    flex: 1,
-  },
   contentContainer: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
