@@ -5,7 +5,7 @@ export type TUser = {
   email: string;
   address: TAddress;
   phone: string;
-  company: TComapany;
+  company: TCompany;
 };
 
 export type TAddress = {
@@ -21,7 +21,7 @@ export type TGeo = {
   lng: string;
 };
 
-export type TComapany = {
+export type TCompany = {
   id: number;
   name: string;
   username: string;

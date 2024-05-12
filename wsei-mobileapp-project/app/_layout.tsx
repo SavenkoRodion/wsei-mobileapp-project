@@ -1,16 +1,9 @@
 import { Link, Slot } from "expo-router";
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Platform,
-  StatusBar,
-  ScrollView,
-} from "react-native";
-import ColourPallete from "../colourPallete";
+import { View, StyleSheet, StatusBar, ScrollView } from "react-native";
+import ColourPallete from "../ColourPallete";
 
-const Layout = () => {
+const Layout = (): React.JSX.Element => {
   return (
     <View style={styles.container}>
       <View style={styles.appBar}>

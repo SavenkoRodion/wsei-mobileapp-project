@@ -32,10 +32,7 @@ const Posts = () => {
     );
   }, [allPosts, postsPerPage, page]);
 
-  const handleChange = (
-    event: React.ChangeEvent<unknown>,
-    page: number
-  ): void => {
+  const handleChange = (_: React.ChangeEvent<unknown>, page: number): void => {
     setPagePosts(
       allPosts.slice(postsPerPage * (page - 1), postsPerPage * page)
     );
