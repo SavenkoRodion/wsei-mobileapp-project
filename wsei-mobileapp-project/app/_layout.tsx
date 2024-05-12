@@ -1,12 +1,22 @@
 import { Link, Slot } from "expo-router";
 import React from "react";
-import { View, Text, StyleSheet, Platform, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Platform,
+  StatusBar,
+  ScrollView,
+} from "react-native";
+import ColourPallete from "../colourPallete";
 
 const Layout = () => {
   return (
     <View style={styles.container}>
       <View style={styles.appBar}>
-        <Text style={styles.headerText}>React zaliczeniowy</Text>
+        <Link style={styles.headerText} href={`/`}>
+          Expo zaliczeniowy
+        </Link>
         <View style={styles.linkContainer}>
           <Link style={styles.link} href={`/`}>
             Posts
@@ -16,9 +26,11 @@ const Layout = () => {
           </Link>
         </View>
       </View>
-      <View style={styles.contentContainer}>
-        <Slot />
-      </View>
+      <ScrollView style={styles.scrollContainer}>
+        <View style={styles.contentContainer}>
+          <Slot />
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -26,12 +38,12 @@ const Layout = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    paddingTop: StatusBar.currentHeight,
   },
   appBar: {
-    backgroundColor: "lightblue",
+    backgroundColor: ColourPallete.Primary,
     paddingVertical: 20,
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -39,6 +51,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
+    color: "white",
   },
   linkContainer: {
     flexDirection: "row",
@@ -46,10 +59,13 @@ const styles = StyleSheet.create({
   link: {
     marginLeft: 20,
     fontSize: 16,
-    color: "blue",
+    color: "white",
+    textDecorationLine: "underline",
+  },
+  scrollContainer: {
+    flex: 1,
   },
   contentContainer: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
