@@ -1,6 +1,7 @@
 import {
   Link,
   Slot,
+  router,
   useGlobalSearchParams,
   useLocalSearchParams,
   useNavigation,
@@ -27,13 +28,25 @@ const UserProfileLayout = () => {
           //onPress={() => navigation.navigate(`/User/${userName}`)}
           style={styles.toolBarElement}
         >
-          <Text style={styles.link}>User profile</Text>
+          <Link style={styles.link} href={`/User/Bret`}>
+            User profile
+          </Link>
         </TouchableOpacity>
         <TouchableOpacity
           //onPress={() => navigation.navigate(`/User/${userName}/Posts`)}
           style={styles.toolBarElement}
         >
-          <Text style={styles.link}>Posts</Text>
+          <Text
+            style={styles.link}
+            onPress={() => {
+              router.push({
+                pathname: `/User/Posts`,
+                params: { UserName: "Bret" },
+              });
+            }}
+          >
+            Posts
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           //onPress={() => navigation.navigate(`/User/${userName}/Albums`)}

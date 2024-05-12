@@ -5,7 +5,7 @@ import { TUser } from "../model/TUser";
 import JsonApiEndpointsEnum from "../model/JsonApiEndpointsEnum";
 import Post from "../components/Posts/Post";
 import jsonApiFetch from "../hooks/jsonApiFetch";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 
 const Posts = () => {
   const [allPosts, setAllPosts] = useState<TPost[]>([]);
