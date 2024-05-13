@@ -14,17 +14,17 @@ const Post = ({ post, userName, commentsCount, children }: PostProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.postedBy}>
-        Posted by{" "}
+        Posted by
         <Link style={styles.link} href={`/User/${userName}`}>
-          {userName}
+          {` ${userName}`}
         </Link>
       </Text>
       <Text style={styles.title}>{post.title}</Text>
       <Text style={styles.body}>{post.body}</Text>
       <Text style={styles.comments}>
-        This post has{" "}
+        This post has
         <Text style={styles.link} onPress={() => {}}>
-          {commentsCount} comments
+          {` ${commentsCount} comments`}
         </Text>
       </Text>
       {children}

@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { TComapany } from "../../model/TUser";
+import { TCompany } from "../../model/TUser";
 
 interface UserProps {
   userName: string;
   name: string;
-  company: TComapany;
+  company: TCompany;
 }
 
 const User = ({ userName, name, company }: UserProps) => {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     padding: 10,
-    width: 500, // Adjust width as needed
+    width: 500,
   },
   userNameLink: {
     fontSize: 20,
