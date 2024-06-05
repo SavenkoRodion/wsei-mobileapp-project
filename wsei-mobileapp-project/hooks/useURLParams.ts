@@ -1,6 +1,6 @@
 const useURLParams = () => {
-  const { userName, albumId } = { userName: "TODO", albumId: "TODO" };
-
+  const userName = "Bret"; 
+  const albumId = "1";     
   return { userName, albumId };
 };
 

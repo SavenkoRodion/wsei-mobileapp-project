@@ -1,7 +1,6 @@
 const useUserName = (): string => {
-  const userName = "TODO";
-
-  return userName as string;
+  const userName = "Bret";
+  return userName;
 };
 
 export default useUserName;
