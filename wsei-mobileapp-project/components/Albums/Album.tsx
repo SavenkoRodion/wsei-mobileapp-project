@@ -1,7 +1,6 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Link } from 'expo-router';
-import useUserName from '../../hooks/useUserName';
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Link } from "expo-router";
 
 interface AlbumProps {
   title: string;
@@ -9,7 +8,7 @@ interface AlbumProps {
 }
 
 const Album = ({ title, albumId }: AlbumProps) => {
-  const userName = useUserName();
+  const userName = "lol";
 
   return (
     <Link href={`/User/${userName}/Albums/${albumId.toString()}`} asChild>
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
   },
   box: {
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: "black",
     borderRadius: 5,
     padding: 10,
     width: 500,
