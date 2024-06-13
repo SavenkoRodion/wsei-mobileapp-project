@@ -2,63 +2,68 @@ import {
   Link,
   Slot,
   router,
-  useGlobalSearchParams,
   useLocalSearchParams,
   useNavigation,
 } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
-import useUserName from "../../hooks/useUserName";
 
 const UserProfileLayout = () => {
-  const userName = useUserName();
+  const { UserName } = useLocalSearchParams();
   const navigation = useNavigation();
 
   useEffect(() => {
-    if (!userName) {
+    if (!UserName) {
       //navigation.navigate("/");
     }
-  }, [userName, navigation]);
+  }, [UserName, navigation]);
 
   return (
     <View style={styles.container}>
       <View style={styles.toolBar}>
-        <TouchableOpacity
-          //onPress={() => navigation.navigate(`/User/${userName}`)}
-          style={styles.toolBarElement}
-        >
-          <Link style={styles.link} href={`/User/Bret`}>
+        <TouchableOpacity style={styles.toolBarElement}>
+          <Link style={styles.link} href={`/User/${UserName}`}>
             User profile
           </Link>
         </TouchableOpacity>
-        <TouchableOpacity
-          //onPress={() => navigation.navigate(`/User/${userName}/Posts`)}
-          style={styles.toolBarElement}
-        >
+        <TouchableOpacity style={styles.toolBarElement}>
           <Text
             style={styles.link}
             onPress={() => {
               router.push({
                 pathname: `/User/Posts`,
-                params: { UserName: "Bret" },
+                params: { UserName: UserName },
               });
             }}
           >
             Posts
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          //onPress={() => navigation.navigate(`/User/${userName}/Albums`)}
-          style={styles.toolBarElement}
-        >
-          <Text style={styles.link}>Albums</Text>
+        <TouchableOpacity style={styles.toolBarElement}>
+          <Text
+            style={styles.link}
+            onPress={() => {
+              router.push({
+                pathname: `/User/Albums`,
+                params: { UserName: UserName },
+              });
+            }}
+          >
+            Albums
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          //onPress={() => navigation.navigate(`/User/${userName}/Todos`)}
-          style={styles.toolBarElement}
-        >
-          <Text style={styles.link}>Todos</Text>
+        <TouchableOpacity style={styles.toolBarElement}>
+          <Text
+            style={styles.link}
+            onPress={() => {
+              router.push({
+                pathname: `/User/Todos`,
+                params: { UserName: UserName },
+              });
+            }}
+          >
+            Todos
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
@@ -80,7 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     paddingVertical: 10,
-    backgroundColor: "lightgrey", // Change to your preferred background color
+    backgroundColor: "lightgrey",
   },
   toolBarElement: {
     flex: 1,
@@ -88,13 +93,13 @@ const styles = StyleSheet.create({
   },
   link: {
     fontSize: 16,
-    color: "blue", // Change to your preferred text color
+    color: "blue",
   },
   content: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "white", // Change to your preferred background color
+    backgroundColor: "white",
   },
   innerContent: {
     flexDirection: "column",

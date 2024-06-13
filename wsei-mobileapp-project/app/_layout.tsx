@@ -1,6 +1,6 @@
 import { Link, Slot } from "expo-router";
 import React from "react";
-import { View, StyleSheet, StatusBar, ScrollView } from "react-native";
+import { View, StyleSheet, StatusBar } from "react-native";
 import ColourPallete from "../ColourPallete";
 
 const Layout = (): React.JSX.Element => {
@@ -14,7 +14,7 @@ const Layout = (): React.JSX.Element => {
           <Link style={styles.link} href={`/`}>
             Posts
           </Link>
-          <Link style={styles.link} href={`/Users`}>
+          <Link style={styles.link} href={`/User/Users`}>
             Users
           </Link>
         </View>

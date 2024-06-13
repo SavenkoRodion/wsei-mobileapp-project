@@ -1,8 +1,8 @@
-type TTodos = {
+interface TTodos {
   userId: number;
   id: number;
   title: string;
-  completed: Boolean;
-};
+  completed: boolean;
+}
 
 export default TTodos;
