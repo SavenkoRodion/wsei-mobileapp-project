@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { View, Image, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { Link, useLocalSearchParams } from 'expo-router';
-import useURLParams from '../../../hooks/useURLParams';
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
+import { Link, useLocalSearchParams } from "expo-router";
 import jsonApiFetch from "../../../hooks/jsonApiFetch";
 import JsonApiEndpointsEnum from "../../../model/JsonApiEndpointsEnum";
-import TPhoto from '../../../model/TPhoto';
+import TPhoto from "../../../model/TPhoto";
 
 const AlbumView = () => {
-  const { albumId } = useURLParams();
+  const { AlbumId } = useLocalSearchParams();
   const [photos, setPhotos] = useState([]);
 
-  console.log(albumId);
   useEffect(() => {
     jsonApiFetch<TPhoto>(
       JsonApiEndpointsEnum.PHOTOS,
-      `albumId=${albumId}`,
+      `albumId=${AlbumId}`,
       setPhotos
     );
-  }, [albumId]);
+  }, [AlbumId]);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -45,15 +50,15 @@ const AlbumView = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
     padding: 10,
   },
   centeredContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   photoContainer: {
     margin: 10,

@@ -23,9 +23,9 @@ const Post = ({ post, userName, commentsCount, children }: PostProps) => {
       <Text style={styles.body}>{post.body}</Text>
       <Text style={styles.comments}>
         This post has
-        <Text style={styles.link} onPress={() => {}}>
-          {` ${commentsCount} comments`}
-        </Text>
+        <Link style={styles.link} href={`/Post/${post.id}`}>
+          {` ${commentsCount} commentss`}
+        </Link>
       </Text>
       {children}
     </View>

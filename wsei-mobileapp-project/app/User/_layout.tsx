@@ -1,22 +1,9 @@
-import {
-  Link,
-  Slot,
-  router,
-  useLocalSearchParams,
-  useNavigation,
-} from "expo-router";
-import { useEffect } from "react";
+import { Link, Slot, router, useLocalSearchParams } from "expo-router";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import ColourPallete from "../../ColourPallete";
 
 const UserProfileLayout = () => {
   const { UserName } = useLocalSearchParams();
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    if (!UserName) {
-      //navigation.navigate("/");
-    }
-  }, [UserName, navigation]);
 
   return (
     <View style={styles.container}>
@@ -85,7 +72,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     paddingVertical: 10,
-    backgroundColor: "lightgrey",
+    backgroundColor: ColourPallete.Primary,
+    borderTopWidth: 1,
   },
   toolBarElement: {
     flex: 1,
@@ -93,7 +81,8 @@ const styles = StyleSheet.create({
   },
   link: {
     fontSize: 16,
-    color: "blue",
+    color: "white",
+    textDecorationLine: "underline",
   },
   content: {
     flex: 1,
@@ -104,6 +93,7 @@ const styles = StyleSheet.create({
   innerContent: {
     flexDirection: "column",
     maxWidth: 500,
+    padding: 10,
   },
 });
 
