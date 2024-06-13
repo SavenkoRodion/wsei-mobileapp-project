@@ -6,10 +6,8 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
-  Text,
 } from "react-native";
 import { Link, useLocalSearchParams } from "expo-router";
-import useURLParams from "../../../hooks/useURLParams";
 import jsonApiFetch from "../../../hooks/jsonApiFetch";
 import JsonApiEndpointsEnum from "../../../model/JsonApiEndpointsEnum";
 import TPhoto from "../../../model/TPhoto";
@@ -18,7 +16,6 @@ const AlbumView = () => {
   const { AlbumId } = useLocalSearchParams();
   const [photos, setPhotos] = useState([]);
 
-  console.log(AlbumId);
   useEffect(() => {
     jsonApiFetch<TPhoto>(
       JsonApiEndpointsEnum.PHOTOS,
