@@ -3,33 +3,21 @@ import { View, Image, StyleSheet, ScrollView, TouchableOpacity, ActivityIndicato
 import { Link, useLocalSearchParams } from 'expo-router';
 import useURLParams from '../../../hooks/useURLParams';
 import jsonApiFetch from "../../../hooks/jsonApiFetch";
-import jsonApiFetchFirst from "../../../hooks/jsonApiFetchFirst";
 import JsonApiEndpointsEnum from "../../../model/JsonApiEndpointsEnum";
-import { TUser } from '../../../model/TUser';
 import TPhoto from '../../../model/TPhoto';
 
 const AlbumView = () => {
   const { albumId } = useURLParams();
-  const { UserName } = useLocalSearchParams();
   const [photos, setPhotos] = useState([]);
-  const [userData, setUserData] = useState(null);
 
   console.log(albumId);
-  useEffect(() => {
-    jsonApiFetchFirst<TUser | null>(
-      JsonApiEndpointsEnum.USERS,
-      `username=${UserName}`,
-      setUserData
-    );
-  }, [UserName]);
-
   useEffect(() => {
     jsonApiFetch<TPhoto>(
       JsonApiEndpointsEnum.PHOTOS,
       `albumId=${albumId}`,
       setPhotos
     );
-  }, [userData, albumId]);
+  }, [albumId]);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -42,6 +30,7 @@ const AlbumView = () => {
                   source={{ uri: photo.thumbnailUrl }}
                   style={styles.photo}
                   alt={photo.title}
+                  crossOrigin="anonymous"
                 />
               </TouchableOpacity>
             </Link>

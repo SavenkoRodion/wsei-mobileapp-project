@@ -8,10 +8,9 @@ interface AlbumProps {
 }
 
 const Album = ({ title, albumId }: AlbumProps) => {
-  const userName = "lol";
 
   return (
-    <Link href={`/User/${userName}/Albums/${albumId.toString()}`} asChild>
+    <Link href={`/User/Albums/${albumId.toString()}`} asChild>
       <TouchableOpacity style={styles.container}>
         <View style={styles.box}>
           <Text style={styles.title}>{title}</Text>
