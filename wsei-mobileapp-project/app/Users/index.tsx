@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
-import JsonApiEndpointsEnum from "../../../model/JsonApiEndpointsEnum";
-import jsonApiFetch from "../../../hooks/jsonApiFetch";
-import { TUser } from '../../../model/TUser';
-import User from '../../../components/Users/User';
+import { useEffect, useState } from "react";
+import JsonApiEndpointsEnum from "../../model/JsonApiEndpointsEnum";
+import { TUser } from "../../model/TUser";
+import jsonApiFetch from "../../hooks/jsonApiFetch";
+import { FlatList, View, StyleSheet } from "react-native";
+import User from "../../components/Users/User";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
 });
 

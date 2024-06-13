@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TCompany } from "../../model/TUser";
+import { Link } from "expo-router";
 
 interface UserProps {
   userName: string;
@@ -11,9 +12,9 @@ interface UserProps {
 const User = ({ userName, name, company }: UserProps) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.userNameLink} onPress={() => {}}>
+      <Link style={styles.userNameLink} href={`User/${userName}`}>
         Name: {userName}
-      </Text>
+      </Link>
       <Text style={styles.text}>Full name: {name}</Text>
       <Text style={styles.text}>Company name: {company.name}</Text>
     </View>

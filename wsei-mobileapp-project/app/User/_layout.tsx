@@ -1,22 +1,8 @@
-import {
-  Link,
-  Slot,
-  router,
-  useLocalSearchParams,
-  useNavigation,
-} from "expo-router";
-import { useEffect } from "react";
+import { Link, Slot, router, useLocalSearchParams } from "expo-router";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
 const UserProfileLayout = () => {
   const { UserName } = useLocalSearchParams();
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    if (!UserName) {
-      //navigation.navigate("/");
-    }
-  }, [UserName, navigation]);
 
   return (
     <View style={styles.container}>
@@ -104,6 +90,7 @@ const styles = StyleSheet.create({
   innerContent: {
     flexDirection: "column",
     maxWidth: 500,
+    padding: 10,
   },
 });
 

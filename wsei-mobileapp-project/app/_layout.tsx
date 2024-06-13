@@ -14,7 +14,7 @@ const Layout = (): React.JSX.Element => {
           <Link style={styles.link} href={`/`}>
             Posts
           </Link>
-          <Link style={styles.link} href={`/User/Users`}>
+          <Link style={styles.link} href={`/Users`}>
             Users
           </Link>
         </View>
